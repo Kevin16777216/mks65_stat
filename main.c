@@ -7,9 +7,7 @@ int main(){
   stat("demo.txt",&st);
   printf("size of demo.txt: %d Bytes\n",st.st_size);
   printf("permissions of demo.txt: %d\n",st.st_mode);
-  time_t* atime = &(st.st_atime);
-  time_t* mtime = &(st.st_mtime);
-  printf("last accessed of demo.txt: %s\n",localtime(atime));
-  printf("last modified of demo.txt: %s\n", localtime(mtime));
+  printf("last accessed of demo.txt: %s\n",ctime(&(st.st_atime)));
+  printf("last modified of demo.txt: %s\n", ctime(&(st.st_mtime)));
   return 0;
 }
